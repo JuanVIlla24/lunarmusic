@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-black text-white font-sans">
       <main className="flex flex-col items-center justify-center gap-8 text-center px-4">
-        <Image src="/lunar_logo_nobg.png" alt="Lunar Music Logo" width={200} height={200} className="mb-4" />
+        <Image src="/lunar_logo_nobg.png" alt="Lunar Music Logo" width={200} height={200} className="mb-4 invert brightness-0" />
         <h1 className="text-5xl md:text-7xl font-bold tracking-widest text-zinc-100 uppercase drop-shadow-lg">
           Lunar Music
         </h1>
