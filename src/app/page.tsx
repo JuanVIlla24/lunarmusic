@@ -127,14 +127,17 @@ export default function Home() {
               </span>
             </a>
           </div>
-          <div className="max-w-[1600px] mx-auto px-6 md:px-10 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <a key={i} href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" className={`relative aspect-square overflow-hidden group rounded-xl ${i === 5 ? 'hidden lg:block' : ''}`}>
-                <div className="absolute inset-0 bg-zinc-100 transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                  <svg className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-75 group-hover:scale-100" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                </div>
-              </a>
+          <div className="max-w-[1600px] mx-auto px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {['DcUxCRLgCJb', 'DdDCD2gjsZG', 'DcPBrJBFQKG', 'Dc_ghVTDu_E'].map((id) => (
+              <div key={id} className="w-full h-[500px] rounded-xl overflow-hidden bg-white shadow-sm border border-zinc-200">
+                <iframe 
+                  src={`https://www.instagram.com/p/${id}/embed`}
+                  className="w-full h-full"
+                  frameBorder="0" 
+                  scrolling="no" 
+                  allowTransparency
+                />
+              </div>
             ))}
           </div>
         </section>
