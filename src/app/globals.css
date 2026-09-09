@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
+
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --background: #fafafa; /* Beige muy clarito / Blanco roto */
+  --foreground: #111111; /* Casi negro para contraste elegante */
   
-  /* Tema por defecto (oscuro) - Lo cambiaremos según la encuesta */
-  --primary: #ffffff;
-  --primary-foreground: #000000;
+  /* Tema Claro Minimalista */
+  --primary: #111111;
+  --primary-foreground: #ffffff;
   
-  --secondary: #1a1a1a;
-  --secondary-foreground: #a1a1aa;
+  --secondary: #f4f4f5; /* Gris muy claro */
+  --secondary-foreground: #3f3f46;
   
-  --accent: #3b82f6; /* Azul brillante como placeholder */
-  --accent-foreground: #ffffff;
+  --accent: #d4d4d8; /* Gris medio elegante */
+  --accent-foreground: #000000;
 }
 
 @theme inline {
