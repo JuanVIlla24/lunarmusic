@@ -19,15 +19,15 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-primary selection:text-white">
       
       {/* HEADER / NAV */}
-      <header className="flex items-center justify-between px-8 py-10 md:px-16 max-w-[1600px] mx-auto w-full">
+      <header className="flex items-center justify-between px-6 py-6 md:px-10 max-w-7xl mx-auto w-full">
         <Image 
           src="/lunar_logo_nobg.png" 
           alt="Lunar Music Logo" 
-          width={160} 
-          height={60} 
+          width={130} 
+          height={45} 
           className="object-contain"
         />
-        <nav className="hidden md:flex gap-12 text-xs font-semibold tracking-[0.2em] uppercase text-secondary-foreground">
+        <nav className="hidden md:flex gap-8 text-xs font-semibold tracking-widest uppercase text-secondary-foreground">
           <a href="#artistas" className="hover:text-primary transition-colors">Roster</a>
           <a href="#agenda" className="hover:text-primary transition-colors">Agenda</a>
           <a href="#contacto" className="hover:text-primary transition-colors">Contacto</a>
@@ -36,53 +36,53 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* HERO SECTION */}
-        <section className="px-8 py-24 md:py-40 md:px-16 max-w-[1600px] mx-auto w-full text-center md:text-left flex flex-col md:flex-row items-center gap-16 md:gap-24">
-          <div className="flex-1 space-y-10">
-            <h1 className="text-6xl md:text-8xl font-light tracking-tighter text-primary leading-[1.1]">
+        <section className="px-6 py-16 md:py-24 md:px-10 max-w-7xl mx-auto w-full text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+          <div className="flex-1 space-y-6">
+            <h1 className="text-5xl md:text-6xl font-light tracking-tighter text-primary leading-tight">
               Elevando el <br />
               <span className="font-bold">Talento Musical.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-secondary-foreground max-w-xl font-light leading-relaxed mx-auto md:mx-0">
+            <p className="text-lg md:text-xl text-secondary-foreground max-w-lg font-light leading-relaxed mx-auto md:mx-0">
               Agencia boutique de Booking & Management. Conectamos proyectos excepcionales con los mejores escenarios, promotores y festivales.
             </p>
-            <div className="pt-8 flex flex-col sm:flex-row gap-6 justify-center md:justify-start">
+            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <a href="#contacto">
-                <Button size="lg" className="w-full sm:w-auto font-semibold uppercase tracking-widest text-xs px-10 h-14">Contratar Artistas</Button>
+                <Button size="md" className="w-full sm:w-auto font-semibold uppercase tracking-widest text-xs">Contratar Artistas</Button>
               </a>
               <a href="#artistas">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto font-semibold uppercase tracking-widest text-xs px-10 h-14">Ver Catálogo</Button>
+                <Button variant="outline" size="md" className="w-full sm:w-auto font-semibold uppercase tracking-widest text-xs">Ver Catálogo</Button>
               </a>
             </div>
           </div>
-          <div className="flex-1 w-full aspect-square md:aspect-[4/5] bg-secondary rounded-[2rem] relative overflow-hidden group">
+          <div className="flex-1 w-full aspect-square md:aspect-[4/3] bg-secondary rounded-[1.5rem] relative overflow-hidden group">
              {/* Imagen hero placeholder - elegante y abstracta */}
              <div className="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-50 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
              <div className="absolute inset-0 flex items-center justify-center text-zinc-400">
-                <span className="font-light tracking-[0.3em] uppercase text-xs">LUNAR MUSIC AGENCY</span>
+                <span className="font-light tracking-[0.2em] uppercase text-xs">LUNAR MUSIC AGENCY</span>
              </div>
           </div>
         </section>
 
         {/* ARTISTS CAROUSEL SECTION */}
-        <section id="artistas" className="py-32 bg-white border-t border-zinc-100 overflow-hidden">
-          <div className="max-w-[1600px] mx-auto px-8 md:px-16 mb-16 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
+        <section id="artistas" className="py-20 bg-white border-t border-zinc-100 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-10 mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-4">
             <div>
-              <h2 className="text-4xl md:text-6xl font-light tracking-tighter mb-4">Nuestro <span className="font-bold">Roster</span></h2>
-              <p className="text-secondary-foreground font-light text-xl">Talento exclusivo disponible para booking.</p>
+              <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-2">Nuestro <span className="font-bold">Roster</span></h2>
+              <p className="text-secondary-foreground font-light text-lg">Talento exclusivo disponible para booking.</p>
             </div>
           </div>
           
-          <div className="pl-8 md:pl-16 max-w-[1800px] mx-auto">
+          <div className="pl-6 md:pl-10 max-w-[1400px] mx-auto">
             <div className="embla cursor-grab active:cursor-grabbing" ref={emblaRef}>
-              <div className="embla__container flex gap-8">
+              <div className="embla__container flex gap-6">
                 {mockArtists.map((artist) => (
-                  <div className="embla__slide flex-[0_0_85%] sm:flex-[0_0_50%] md:flex-[0_0_35%] lg:flex-[0_0_28%] min-w-0" key={artist.id}>
+                  <div className="embla__slide flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_30%] min-w-0" key={artist.id}>
                     <ArtistCard artist={artist} />
                   </div>
                 ))}
                 {/* Dummy cards for demonstration of carousel */}
                 {[2,3,4].map((i) => (
-                  <div className="embla__slide flex-[0_0_85%] sm:flex-[0_0_50%] md:flex-[0_0_35%] lg:flex-[0_0_28%] min-w-0" key={i}>
+                  <div className="embla__slide flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_30%] min-w-0" key={i}>
                     <ArtistCard artist={{...mockArtists[0], id: i.toString(), name: `Artista ${i}`}} />
                   </div>
                 ))}
@@ -92,42 +92,42 @@ export default function Home() {
         </section>
 
         {/* AGENDA SECTION */}
-        <section id="agenda" className="py-32 px-8 md:px-16 max-w-[1200px] mx-auto w-full">
-          <h2 className="text-4xl md:text-6xl font-light tracking-tighter mb-16 text-center">Próximos <span className="font-bold">Shows</span></h2>
-          <div className="max-w-4xl mx-auto divide-y divide-zinc-200 border-t border-b border-zinc-200">
+        <section id="agenda" className="py-20 px-6 md:px-10 max-w-7xl mx-auto w-full">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-10 text-center">Próximos <span className="font-bold">Shows</span></h2>
+          <div className="max-w-3xl mx-auto divide-y divide-zinc-200 border-t border-b border-zinc-200">
             {/* Ejemplo de un show */}
-            <div className="py-10 flex flex-col md:flex-row md:items-center justify-between gap-8 group hover:bg-zinc-50 transition-colors px-6 -mx-6 rounded-2xl">
-              <div className="flex items-center gap-10">
-                <div className="text-center w-20">
-                  <span className="block text-sm font-bold text-zinc-400 uppercase tracking-[0.2em]">OCT</span>
-                  <span className="block text-4xl font-light text-primary mt-1">14</span>
+            <div className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:bg-zinc-50 transition-colors px-4 -mx-4 rounded-xl">
+              <div className="flex items-center gap-8">
+                <div className="text-center w-16">
+                  <span className="block text-xs font-bold text-zinc-400 uppercase tracking-[0.2em]">OCT</span>
+                  <span className="block text-3xl font-light text-primary mt-1">14</span>
                 </div>
                 <div>
-                  <h4 className="text-2xl font-bold tracking-tight">Artista Ejemplo</h4>
-                  <p className="text-secondary-foreground font-light flex items-center gap-2 text-base mt-2">
+                  <h4 className="text-xl font-bold tracking-tight">Artista Ejemplo</h4>
+                  <p className="text-secondary-foreground font-light flex items-center gap-2 text-sm mt-1">
                     Club de Prueba, CDMX
                   </p>
                 </div>
               </div>
-              <Button variant="outline" size="lg" className="hidden md:flex uppercase tracking-widest text-xs font-semibold px-8">Ver Detalles</Button>
+              <Button variant="outline" size="sm" className="hidden md:flex uppercase tracking-widest text-xs font-semibold">Ver Detalles</Button>
             </div>
-            <div className="py-16 text-center text-zinc-400 font-light tracking-wider uppercase text-sm">
+            <div className="py-10 text-center text-zinc-400 font-light tracking-wider uppercase text-sm">
               Más fechas por anunciarse pronto...
             </div>
           </div>
         </section>
 
         {/* CONTACT SECTION */}
-        <section id="contacto" className="py-32 bg-primary text-primary-foreground text-center px-8">
-          <div className="max-w-3xl mx-auto space-y-12">
-            <h2 className="text-5xl md:text-7xl font-light tracking-tighter">¿Listo para el próximo <span className="font-bold">evento?</span></h2>
-            <p className="text-zinc-400 text-xl font-light leading-relaxed">
+        <section id="contacto" className="py-24 bg-primary text-primary-foreground text-center px-6">
+          <div className="max-w-2xl mx-auto space-y-8">
+            <h2 className="text-4xl md:text-6xl font-light tracking-tighter">¿Listo para el próximo <span className="font-bold">evento?</span></h2>
+            <p className="text-zinc-400 text-lg font-light leading-relaxed">
               Ponte en contacto directo con nosotros para consultar disponibilidad, cotizaciones y fechas abiertas.
             </p>
-            <div className="flex justify-center gap-6 pt-8">
+            <div className="flex justify-center gap-4 pt-6">
               <a href="mailto:contacto@lunarmusic.com.mx">
-                <Button size="lg" className="bg-white text-black hover:bg-zinc-200 flex items-center gap-3 h-16 px-10 uppercase tracking-widest text-xs font-bold">
-                  <Mail size={20} /> Escríbenos un correo
+                <Button size="lg" className="bg-white text-black hover:bg-zinc-200 flex items-center gap-2 h-14 px-8 uppercase tracking-widest text-xs font-bold">
+                  <Mail size={18} /> Escríbenos un correo
                 </Button>
               </a>
             </div>
