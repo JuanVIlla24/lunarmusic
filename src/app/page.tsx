@@ -19,12 +19,12 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-primary selection:text-white">
       
       {/* HEADER / NAV */}
-      <header className="flex items-center justify-between px-6 py-6 md:px-10 max-w-7xl mx-auto w-full">
+      <header className="flex items-center justify-between px-6 py-4 md:px-10 max-w-7xl mx-auto w-full">
         <Image 
           src="/lunar_logo_nobg.png" 
           alt="Lunar Music Logo" 
           width={130} 
-          height={45} 
+          height={40} 
           className="object-contain"
         />
         <nav className="hidden md:flex gap-8 text-xs font-semibold tracking-widest uppercase text-secondary-foreground">
@@ -36,7 +36,7 @@ export default function Home() {
 
       <main className="flex-grow">
         {/* HERO SECTION */}
-        <section className="px-6 py-16 md:py-24 md:px-10 max-w-7xl mx-auto w-full text-center md:text-left flex flex-col md:flex-row items-center gap-12">
+        <section className="px-6 pt-8 pb-16 md:pt-12 md:pb-20 md:px-10 max-w-7xl mx-auto w-full text-center md:text-left flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 space-y-6">
             <h1 className="text-5xl md:text-6xl font-light tracking-tighter text-primary leading-tight">
               Elevando el <br />
