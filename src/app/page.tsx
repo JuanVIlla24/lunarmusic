@@ -126,7 +126,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center gap-4 pt-6">
               <a href="mailto:contacto@lunarmusic.com.mx">
-                <Button size="lg" className="bg-white text-black hover:bg-zinc-200 flex items-center gap-2 h-14 px-8 uppercase tracking-widest text-xs font-bold">
+                <Button size="lg" className="!bg-white !text-black hover:!bg-zinc-200 flex items-center gap-2 h-14 px-8 uppercase tracking-widest text-xs font-bold">
                   <Mail size={18} /> Escríbenos un correo
                 </Button>
               </a>
