@@ -345,19 +345,49 @@ p {
 .artist-socials {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-top: 14px;
+  gap: 10px;
+  margin: 15px 0 25px;
 }
 .artist-socials a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 6px;
+  font-size: 11px;
   text-transform: capitalize;
-  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  padding: 6px 14px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+.artist-socials a:hover {
+  border-color: var(--foreground);
+  background: var(--foreground);
+  color: var(--background);
 }
 .artist-booking {
-  width: 100%;
-  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  border: none;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 12px 20px;
+  border-radius: 999px;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+  transition: all 0.2s ease;
+}
+.artist-booking:hover {
+  background: var(--accent);
+  color: #fff;
+  opacity: 1;
+  gap: 16px;
 }
 .site-footer {
   margin-top: 60px;

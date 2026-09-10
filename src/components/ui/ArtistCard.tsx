@@ -35,7 +35,7 @@ export function ArtistCard({ artist }: { artist: Artist }) {
             ))}
         </div>
         <a
-          className="text-link artist-booking"
+          className="artist-booking"
           href={`mailto:contacto@lunarmusic.com.mx?subject=${encodeURIComponent(`Booking — ${artist.name}`)}`}
         >
           Contratar <ArrowUpRight size={16} />

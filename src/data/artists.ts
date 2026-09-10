@@ -16,6 +16,7 @@ export const artists: Artist[] = [
     imageUrl: "/artists/petite_amie.jpeg",
     socialLinks: {
       spotify: "https://open.spotify.com/artist/4f8uwOhcAdzozAkqq6AEwa?si=ekrSL-riQEuESROdLsmzyg",
+      instagram: "https://www.instagram.com/valsianoficial"
     }
   },
   {
