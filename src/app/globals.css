@@ -583,10 +583,13 @@ p {
     min-height: auto;
     display: grid;
     grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
     gap: 15px;
     padding: 20px 0;
   }
   .site-header > a:first-child {
+    grid-column: 1;
+    grid-row: 1;
     align-self: center;
   }
   .site-header .brand-logo {
@@ -594,18 +597,21 @@ p {
   }
   .site-header nav {
     grid-column: 1 / -1;
+    grid-row: 2;
     width: 100%;
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 11px;
     padding-top: 15px;
     border-top: 1px solid var(--line);
   }
   .header-contact {
+    grid-column: 2;
+    grid-row: 1;
     align-self: center;
-    border: none;
-    padding: 0;
-    font-size: 13px;
+    border: 1px solid var(--foreground);
+    padding: 6px 14px;
+    font-size: 11px;
   }
   .hero {
     padding: 40px 0;
