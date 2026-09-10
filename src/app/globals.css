@@ -151,7 +151,7 @@ h1 {
 em {
   font-style: italic;
   font-weight: 700;
-  color: #71795d;
+  color: var(--accent);
 }
 h2 {
   font-size: clamp(36px, 4vw, 58px);
