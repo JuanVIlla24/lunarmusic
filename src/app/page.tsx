@@ -7,6 +7,7 @@ import { artists } from "@/data/artists";
 import { ArtistCard } from "@/components/ui/ArtistCard";
 import { InstagramEmbed } from "@/components/ui/InstagramEmbed";
 import { ContactForm } from "@/components/ui/ContactForm";
+import { ImageGallery } from "@/components/ui/ImageGallery";
 
 const email = "contacto@lunarmusic.com.mx";
 
@@ -252,10 +253,35 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="noticias" className="wrap" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid var(--line)' }}>
+          <div className="section-top" style={{ marginBottom: '40px' }}>
+            <div>
+              <span className="eyebrow">05 / Noticias</span>
+              <h2>
+                Lo que está <em>sonando.</em>
+              </h2>
+            </div>
+            <p>Novedades, lanzamientos y anuncios oficiales.</p>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+            <article style={{ border: '1px solid var(--line)', padding: '20px', borderRadius: '8px' }}>
+              <span style={{ fontSize: '11px', color: 'var(--secondary-foreground)' }}>Próximamente</span>
+              <h3 style={{ fontSize: '16px', margin: '10px 0' }}>Nuevas fechas por anunciar</h3>
+              <p style={{ fontSize: '13px', color: 'var(--secondary-foreground)' }}>Muy pronto estaremos compartiendo las nuevas fechas de la gira. Mantente al pendiente.</p>
+            </article>
+            <article style={{ border: '1px solid var(--line)', padding: '20px', borderRadius: '8px' }}>
+              <span style={{ fontSize: '11px', color: 'var(--secondary-foreground)' }}>Lanzamiento</span>
+              <h3 style={{ fontSize: '16px', margin: '10px 0' }}>Nueva música en camino</h3>
+              <p style={{ fontSize: '13px', color: 'var(--secondary-foreground)' }}>Nuestros artistas están preparando grandes sorpresas en el estudio.</p>
+            </article>
+          </div>
+        </section>
+
         <section id="conciertos" className="agenda-section wrap" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid var(--line)' }}>
           <div className="section-top" style={{ marginBottom: '40px' }}>
             <div>
-              <span className="eyebrow">05 / Galería</span>
+              <span className="eyebrow">06 / Galería</span>
               <h2>
                 Nuestros <em>conciertos.</em>
               </h2>
@@ -263,36 +289,24 @@ export default function Home() {
             <p>Momentos inolvidables capturados en vivo.</p>
           </div>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
-            {[
-              "IMG_0208.JPG.jpeg",
-              "IMG_0210.JPG.jpeg",
-              "IMG_0223.PNG",
-              "IMG_0224.JPG.jpeg",
-              "IMG_0867.PNG",
-              "IMG_2079.JPG.jpeg",
-              "IMG_5436.PNG",
-              "IMG_8058.JPG.jpeg",
-              "IMG_8106.JPG.jpeg",
-              "IMG_8528.PNG",
-              "IMG_8706.JPG.jpeg",
-              "IMG_9164.JPG.jpeg",
-            ].map((img, i) => (
-              <div key={i} style={{ position: 'relative', aspectRatio: '1', borderRadius: '4px', overflow: 'hidden' }}>
-                <Image
-                  src={`/conciertos/${img}`}
-                  alt={`Concierto ${i + 1}`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
-                />
-              </div>
-            ))}
-          </div>
+          <ImageGallery images={[
+            "IMG_0208.JPG.jpeg",
+            "IMG_0210.JPG.jpeg",
+            "IMG_0223.PNG",
+            "IMG_0224.JPG.jpeg",
+            "IMG_0867.PNG",
+            "IMG_2079.JPG.jpeg",
+            "IMG_5436.PNG",
+            "IMG_8058.JPG.jpeg",
+            "IMG_8106.JPG.jpeg",
+            "IMG_8528.PNG",
+            "IMG_8706.JPG.jpeg",
+            "IMG_9164.JPG.jpeg",
+          ]} />
         </section>
 
         <section id="contacto" className="contact-section wrap">
-          <span className="eyebrow">06 / Hagamos que suceda</span>
+          <span className="eyebrow">07 / Hagamos que suceda</span>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px', marginTop: '40px', paddingBottom: '60px', borderBottom: '1px solid var(--line)' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
