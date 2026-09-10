@@ -35,6 +35,7 @@ export default function Home() {
           <a href="#artistas">Artistas</a>
           <a href="#servicios">Agencia</a>
           <a href="#agenda">Agenda</a>
+          <a href="#conciertos">Conciertos</a>
         </nav>
         <a className="header-contact" href="#contacto">
           Hablemos <ArrowUpRight size={16} />
@@ -251,8 +252,47 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="conciertos" className="agenda-section wrap" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid var(--line)' }}>
+          <div className="section-top" style={{ marginBottom: '40px' }}>
+            <div>
+              <span className="eyebrow">05 / Galería</span>
+              <h2>
+                Nuestros <em>conciertos.</em>
+              </h2>
+            </div>
+            <p>Momentos inolvidables capturados en vivo.</p>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '20px' }}>
+            {[
+              "IMG_0208.JPG.jpeg",
+              "IMG_0210.JPG.jpeg",
+              "IMG_0223.PNG",
+              "IMG_0224.JPG.jpeg",
+              "IMG_0867.PNG",
+              "IMG_2079.JPG.jpeg",
+              "IMG_5436.PNG",
+              "IMG_8058.JPG.jpeg",
+              "IMG_8106.JPG.jpeg",
+              "IMG_8528.PNG",
+              "IMG_8706.JPG.jpeg",
+              "IMG_9164.JPG.jpeg",
+            ].map((img, i) => (
+              <div key={i} style={{ position: 'relative', aspectRatio: '1', borderRadius: '4px', overflow: 'hidden' }}>
+                <Image
+                  src={`/conciertos/${img}`}
+                  alt={`Concierto ${i + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
         <section id="contacto" className="contact-section wrap">
-          <span className="eyebrow">05 / Hagamos que suceda</span>
+          <span className="eyebrow">06 / Hagamos que suceda</span>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px', marginTop: '40px', paddingBottom: '60px', borderBottom: '1px solid var(--line)' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
