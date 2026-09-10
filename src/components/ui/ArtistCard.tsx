@@ -23,7 +23,7 @@ function SpotifyIcon({ size = 16 }: { size?: number }) {
 export function ArtistCard({ artist }: { artist: Artist }) {
   return (
     <article className="artist-card">
-      <div className="artist-photo">
+      <div className="artist-image">
         <Image
           src={artist.imageUrl}
           alt={artist.name}
