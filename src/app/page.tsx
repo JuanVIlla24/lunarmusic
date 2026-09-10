@@ -36,6 +36,7 @@ export default function Home() {
           <a href="#artistas">Artistas</a>
           <a href="#servicios">Agencia</a>
           <a href="#agenda">Agenda</a>
+          <a href="#noticias">Noticias</a>
           <a href="#conciertos">Conciertos</a>
         </nav>
         <a className="header-contact" href="#contacto">
