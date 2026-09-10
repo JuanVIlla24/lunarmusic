@@ -1,14 +1,14 @@
 @import "tailwindcss";
 :root {
   --background: #f8f7f2;
-  --foreground: #282b27;
-  --primary: #282b27;
+  --foreground: #1a1a1a;
+  --primary: #1a1a1a;
   --primary-foreground: #fff;
   --secondary: #efeee7;
-  --secondary-foreground: #66695f;
-  --accent: #e63946;
+  --secondary-foreground: #5a5d55;
+  --accent: #252525;
   --accent-foreground: #fff;
-  --line: #e2dfd3;
+  --line: rgba(0, 0, 0, 0.06);
 }
 @theme {
   --color-background: var(--background);
@@ -31,13 +31,15 @@ html {
 }
 body {
   margin: 0;
-  background: var(--background);
+  background-color: var(--background);
+  background-image: radial-gradient(var(--line) 1px, transparent 1px);
+  background-size: 32px 32px;
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
-  background: #dce1c9;
+  background: rgba(0,0,0,0.1);
 }
 a,
 button {
@@ -151,7 +153,10 @@ h1 {
 em {
   font-style: italic;
   font-weight: 700;
-  color: inherit;
+  background: linear-gradient(120deg, #9a5342 0%, #d27958 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 h2 {
   font-size: clamp(36px, 4vw, 58px);
