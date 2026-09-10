@@ -5,6 +5,7 @@ import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { artists } from "@/data/artists";
 import { ArtistCard } from "@/components/ui/ArtistCard";
+import { InstagramEmbed } from "@/components/ui/InstagramEmbed";
 
 const email = "contacto@lunarmusic.com.mx";
 
@@ -195,18 +196,25 @@ export default function Home() {
             <div>
               <span className="eyebrow">03 / En vivo</span>
               <h2>
-                Nos vemos <em>ahí.</em>
+                Lo más <em>reciente.</em>
               </h2>
             </div>
-            <p>La música se vive en el escenario.</p>
+            <p>Sigue a Lunar Music en Instagram para enterarte de todo.</p>
           </div>
-          <div className="agenda-empty">
+          
+          <div className="instagram-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
+            <InstagramEmbed url="https://www.instagram.com/p/DdDCD2gjsZG/" />
+            <InstagramEmbed url="https://www.instagram.com/p/DcPBrJBFQKG/" />
+            <InstagramEmbed url="https://www.instagram.com/p/Dc_ghVTDu_E/" />
+          </div>
+
+          <div className="agenda-empty" style={{ marginTop: '3rem' }}>
             <span className="agenda-star" aria-hidden="true">
               ✳
             </span>
             <div>
               <h3>Próximas fechas por anunciar.</h3>
-              <p>Sigue a Lunar Music para conocer nuestros próximos shows.</p>
+              <p>Mantente al pendiente de nuestras redes para conocer nuestros próximos shows.</p>
             </div>
             <a
               className="text-link"
@@ -214,7 +222,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Instagram <ArrowUpRight size={17} />
+              Ver perfil <ArrowUpRight size={17} />
             </a>
           </div>
         </section>

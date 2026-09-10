@@ -6,9 +6,9 @@
   --primary-foreground: #fff;
   --secondary: #efeee7;
   --secondary-foreground: #66695f;
-  --accent: #747d58;
+  --accent: #e63946;
   --accent-foreground: #fff;
-  --line: #d8d9ce;
+  --line: #e2dfd3;
 }
 @theme {
   --color-background: var(--background);
@@ -33,7 +33,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
 ::selection {
@@ -74,20 +74,32 @@ button:focus-visible {
   display: flex;
   gap: 36px;
   font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 .header-contact {
   display: flex;
   align-items: center;
-  gap: 22px;
-  border-bottom: 1px solid;
-  padding: 10px 0;
-  font-size: 13px;
+  gap: 16px;
+  border: 1px solid var(--foreground);
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+.header-contact:hover {
+  background: var(--foreground);
+  color: var(--background);
 }
 .eyebrow {
-  font-size: 10px;
-  letter-spacing: 2px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
 }
 .hero {
   padding-top: 65px;
@@ -120,7 +132,8 @@ p {
 h1,
 h2,
 h3 {
-  font-weight: 400;
+  font-weight: 700;
+  font-family: var(--font-sans);
 }
 h1,
 h2,
@@ -128,21 +141,22 @@ h2,
 .artist-info h3,
 .agenda-empty h3,
 .services h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-sans);
 }
 h1 {
   font-size: clamp(40px, 5.4vw, 79px);
-  line-height: 1.1;
-  letter-spacing: -3.5px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
 }
 em {
-  font-weight: 400;
+  font-style: italic;
+  font-weight: 700;
   color: #71795d;
 }
 h2 {
   font-size: clamp(36px, 4vw, 58px);
-  line-height: 1.1;
-  letter-spacing: -2px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 .orbit-mark {
   width: 155px;
@@ -173,7 +187,7 @@ h2 {
   top: 49px;
   left: 49px;
   border-radius: 50%;
-  background: #6f7856;
+  background: var(--accent);
 }
 .hero-bottom {
   display: flex;
@@ -192,10 +206,18 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 2px solid var(--accent);
+  padding: 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: opacity 0.2s ease, gap 0.2s ease;
+}
+.text-link:hover {
+  opacity: 0.7;
   gap: 22px;
-  font-size: 12px;
-  border-bottom: 1px solid #a6ab97;
-  padding: 12px 0;
 }
 .artists-section {
   padding-top: 34px;
@@ -404,7 +426,7 @@ p {
 }
 .agenda-star {
   font-size: 46px;
-  color: #747d58;
+  color: var(--accent);
 }
 .agenda-empty h3 {
   font-size: 27px;
@@ -523,25 +545,32 @@ p {
   }
   .site-header {
     height: auto;
-    min-height: 95px;
-    flex-wrap: wrap;
-    padding: 15px 0;
-    gap: 14px;
+    min-height: auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 15px;
+    padding: 20px 0;
+  }
+  .site-header > a:first-child {
+    align-self: center;
   }
   .site-header .brand-logo {
-    width: 88px;
+    width: 100px;
   }
   .site-header nav {
-    order: 3;
+    grid-column: 1 / -1;
     width: 100%;
+    display: flex;
     justify-content: space-between;
-    gap: 18px;
-    font-size: 12px;
-    padding-top: 10px;
+    font-size: 13px;
+    padding-top: 15px;
     border-top: 1px solid var(--line);
   }
   .header-contact {
-    font-size: 12px;
+    align-self: center;
+    border: none;
+    padding: 0;
+    font-size: 13px;
   }
   .hero {
     padding: 40px 0;
