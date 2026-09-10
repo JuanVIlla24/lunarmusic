@@ -1,364 +1,218 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { artists } from "@/data/artists";
 import { ArtistCard } from "@/components/ui/ArtistCard";
 import { InstagramEmbed } from "@/components/ui/InstagramEmbed";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { ImageGallery } from "@/components/ui/ImageGallery";
+import { PressCarousel } from "@/components/ui/PressCarousel";
 
-const email = "contacto@lunarmusic.com.mx";
+const email = "lunarmusicagencia@gmail.com";
+const phone = "5544775254";
+const contactName = "Fernando Luna";
+
+const pressImages = [
+  "IMG_0208.JPG.jpeg",
+  "IMG_0210.JPG.jpeg",
+  "IMG_0223.PNG",
+  "IMG_0224.JPG.jpeg",
+  "IMG_0867.PNG",
+];
+
+const flyerImages = [
+  "IMG_2079.JPG.jpeg",
+  "IMG_5436.PNG",
+  "IMG_8058.JPG.jpeg",
+  "IMG_8106.JPG.jpeg",
+  "IMG_8528.PNG",
+  "IMG_8706.JPG.jpeg",
+  "IMG_9164.JPG.jpeg",
+];
 
 export default function Home() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
   });
+
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#contenido">
-        Ir al contenido
-      </a>
       <header className="site-header wrap">
         <a href="#" aria-label="Lunar Music, inicio">
           <Image
             src="/lunar_logo_nobg.png"
             alt="Lunar Music"
-            width={116}
-            height={64}
+            width={140}
+            height={60}
             priority
             className="brand-logo"
           />
         </a>
         <nav aria-label="Navegación principal">
-          <a href="#artistas">Artistas</a>
-          <a href="#servicios">Agencia</a>
-          <a href="#agenda">Agenda</a>
           <a href="#noticias">Noticias</a>
+          <a href="#artistas">Artistas</a>
           <a href="#conciertos">Conciertos</a>
+          <a href="#reciente">Reciente</a>
+          <a href="#contacto">Contacto</a>
         </nav>
         <a className="header-contact" href="#contacto">
-          Hablemos <ArrowUpRight size={16} />
+          Hablemos <ArrowUpRight size={18} strokeWidth={3} />
         </a>
       </header>
+
       <main id="contenido">
-        <section className="hero wrap">
-          <div className="eyebrow">
-            <span className="status-dot" /> Booking & Management · México
+        
+        {/* 1. NOTICIAS (CARRUSEL INICIO) */}
+        <section id="noticias" className="wrap brutalist-section">
+          <div className="section-top">
+            <span className="eyebrow">01 / Noticias</span>
+            <h1>Lo más <em>nuevo.</em></h1>
+            <p>Desliza para ver la cobertura de prensa y noticias destacadas.</p>
           </div>
-          <div className="hero-heading">
-            <h1>
-              La música nos mueve.
-              <br />
-              <em>El talento nos conecta.</em>
-            </h1>
-            <div className="orbit-mark" aria-hidden="true">
-              <span />
-            </div>
-          </div>
-          <div className="hero-bottom">
-            <p>
-              Conectamos artistas con escenarios.
-              <br />
-              Acompañamos el talento en cada paso.
-            </p>
-            <a className="text-link" href="#artistas">
-              Conoce nuestros artistas <ArrowDown size={18} />
-            </a>
-          </div>
+          <PressCarousel images={pressImages} />
         </section>
 
-        <section id="nosotros" className="about-section wrap" style={{ paddingBottom: '80px' }}>
-          <div className="section-top">
+        {/* 2. ARTISTAS */}
+        <section id="artistas" className="wrap brutalist-section">
+          <div className="section-top" style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap" }}>
             <div>
-              <span className="eyebrow">01 / Nosotros</span>
-              <h2>
-                Pasión por <em>el sonido.</em>
-              </h2>
-            </div>
-          </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '20px' }}>
-            <p style={{ fontSize: '15px', lineHeight: '1.8', color: 'var(--foreground)', fontWeight: 500 }}>
-              Somos una agencia boutique de booking y management con sede en México. 
-              Creemos firmemente en el talento genuino y en el poder de la música para crear momentos inolvidables. 
-              Nuestro objetivo es ser el puente que une a los artistas con los escenarios que merecen.
-            </p>
-            <p style={{ fontSize: '15px', lineHeight: '1.8', color: 'var(--secondary-foreground)' }}>
-              Trabajamos mano a mano con creadores, promotores y festivales para asegurar 
-              que cada presentación sea única. En Lunar Music, no solo vendemos fechas; 
-              construimos carreras y acompañamos la visión artística en cada paso del camino.
-            </p>
-          </div>
-        </section>
-
-        <section
-          id="artistas"
-          className="artists-section wrap"
-          aria-labelledby="artists-title"
-        >
-          <div className="section-top">
-            <div>
-              <span className="eyebrow">02 / Nuestro roster</span>
-              <h2 id="artists-title">
-                Talento con <em>identidad.</em>
-              </h2>
+              <span className="eyebrow">02 / Artistas</span>
+              <h2>Nuestro <em>talento.</em></h2>
             </div>
             <div className="carousel-controls">
               <button
                 onClick={() => emblaApi?.scrollPrev()}
-                aria-label="Artistas anteriores"
-                aria-controls="artist-carousel"
+                aria-label="Anterior artista"
+                style={{ width: 44, height: 44, border: "2px solid var(--primary)", background: "var(--background)", fontWeight: "900" }}
               >
-                <ArrowLeft size={20} />
+                ←
               </button>
               <button
                 onClick={() => emblaApi?.scrollNext()}
-                aria-label="Siguientes artistas"
-                aria-controls="artist-carousel"
+                aria-label="Siguiente artista"
+                style={{ width: 44, height: 44, border: "2px solid var(--primary)", background: "var(--background)", fontWeight: "900" }}
               >
-                <ArrowRight size={20} />
+                →
               </button>
             </div>
           </div>
-          <div
-            className="carousel"
-            ref={emblaRef}
-            id="artist-carousel"
-            role="region"
-            aria-label="Carrusel de artistas"
-          >
-            <div className="carousel-track">
-              {artists.length
-                ? artists.map((artist) => (
-                    <div className="artist-slide" key={artist.id}>
-                      <ArtistCard artist={artist} />
-                    </div>
-                  ))
-                : ["01", "02", "03"].map((number, index) => (
-                    <div className="artist-slide" key={number}>
-                      <article className="artist-card">
-                        <div className={`artist-placeholder tone-${index}`}>
-                          <span className="placeholder-top">
-                            LUNAR MUSIC <span>{number}</span>
-                          </span>
-                          <div
-                            className="placeholder-orbit"
-                            aria-hidden="true"
-                          />
-                          <span className="placeholder-bottom">
-                            Nuevas conexiones.
-                            <br />
-                            <em>Próximamente.</em>
-                          </span>
-                        </div>
-                        <div className="artist-info">
-                          <span className="eyebrow">Roster en preparación</span>
-                          <h3>Lo que viene suena bien.</h3>
-                          <p>Pronto conocerás a nuestros artistas.</p>
-                        </div>
-                      </article>
-                    </div>
-                  ))}
-            </div>
-          </div>
-          <div className="roster-note">
-            <span>Artistas, proyectos y nuevas posibilidades.</span>
-            <a href="#contacto">
-              Consulta nuestro roster <ArrowUpRight size={15} />
-            </a>
-          </div>
-        </section>
-
-        <section id="servicios" className="agency-section">
-          <div className="wrap agency-grid">
-            <div>
-              <span className="eyebrow">03 / La agencia</span>
-              <h2>
-                Detrás de la música,
-                <br />
-                <em>junto al artista.</em>
-              </h2>
-              <p className="agency-intro">
-                Cada proyecto tiene su propia voz. En Lunar Music creamos
-                conexiones para que llegue más lejos.
-              </p>
-            </div>
-            <div className="services">
-              <article>
-                <span className="service-number">01</span>
-                <div>
-                  <h3>Booking</h3>
-                  <p>
-                    Conectamos a promotores, venues y festivales con el talento
-                    para su próximo evento. Hablemos de artistas, fechas y
-                    disponibilidad.
-                  </p>
-                  <a className="text-link" href="#contacto">
-                    Planeemos tu próximo evento <ArrowUpRight size={16} />
-                  </a>
+          <div className="embla" ref={emblaRef} style={{ background: "transparent", border: "none" }}>
+            <div className="embla__container" style={{ gap: "24px" }}>
+              {artists.map((artist) => (
+                <div key={artist.id} className="embla__slide" style={{ flex: "0 0 320px", aspectRatio: "auto" }}>
+                  <ArtistCard artist={artist} />
                 </div>
-              </article>
-              <article>
-                <span className="service-number">02</span>
-                <div>
-                  <h3>Management</h3>
-                  <p>
-                    Acompañamos el desarrollo artístico y la representación de
-                    nuestros proyectos, construyendo una visión compartida para
-                    cada etapa.
-                  </p>
-                  <a className="text-link" href="#contacto">
-                    Conoce la agencia <ArrowUpRight size={16} />
-                  </a>
-                </div>
-              </article>
+              ))}
             </div>
           </div>
         </section>
 
-        <section id="agenda" className="agenda-section wrap">
+        {/* 3. CONCIERTOS (FLYERS) */}
+        <section id="conciertos" className="wrap brutalist-section">
           <div className="section-top">
-            <div>
-              <span className="eyebrow">04 / En vivo</span>
-              <h2>
-                Lo más <em>reciente.</em>
-              </h2>
-            </div>
-            <p>Sigue a Lunar Music en Instagram para enterarte de todo.</p>
+            <span className="eyebrow">03 / Conciertos</span>
+            <h2>Shows <em>oficiales.</em></h2>
+            <p>Flyers y carteles de presentaciones recientes (Siddhartha, Pal Norte, Reyno, La Barranca, Vaguens, etc).</p>
           </div>
-          
-          <div className="instagram-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem', marginTop: '2rem' }}>
-            <InstagramEmbed url="https://www.instagram.com/p/DdDCD2gjsZG/" />
-            <InstagramEmbed url="https://www.instagram.com/p/DcPBrJBFQKG/" />
-            <InstagramEmbed url="https://www.instagram.com/p/Dc_ghVTDu_E/" />
-          </div>
+          <ImageGallery images={flyerImages} />
+        </section>
 
-          <div className="agenda-empty" style={{ marginTop: '3rem' }}>
-            <span className="agenda-star" aria-hidden="true">
-              ✳
-            </span>
-            <div>
-              <h3>Próximas fechas por anunciar.</h3>
-              <p>Mantente al pendiente de nuestras redes para conocer nuestros próximos shows.</p>
-            </div>
+        {/* 4. RECIENTE (IG) */}
+        <section id="reciente" className="wrap brutalist-section">
+          <div className="section-top">
+            <span className="eyebrow">04 / Reciente</span>
+            <h2>En <em>tendencia.</em></h2>
+            <p>Publicación destacada con más visibilidad.</p>
+          </div>
+          <div style={{ maxWidth: "500px", margin: "0 auto", border: "4px solid var(--primary)", background: "var(--background)" }}>
+            <InstagramEmbed url="https://www.instagram.com/p/DdDCD2gjsZG/" />
+          </div>
+        </section>
+
+        {/* 5. PRESENTACIONES Y FECHAS */}
+        <section id="fechas" className="wrap brutalist-section">
+          <div className="section-top">
+            <span className="eyebrow">05 / Agenda</span>
+            <h2>Fechas <em>próximas.</em></h2>
+          </div>
+          <div style={{ border: "2px solid var(--primary)", padding: "40px", textAlign: "center", background: "var(--accent)" }}>
+            <h3 style={{ color: "var(--primary)" }}>Nuevas fechas por anunciar</h3>
+            <p style={{ marginTop: "20px", color: "var(--primary)" }}>Mantente al pendiente de nuestras redes para conocer nuestros próximos shows.</p>
             <a
-              className="text-link"
               href="https://www.instagram.com/lunarmusicmx"
               target="_blank"
               rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "30px", padding: "15px 30px", background: "var(--primary)", color: "var(--primary-foreground)", fontWeight: "900", textTransform: "uppercase" }}
             >
-              Ver perfil <ArrowUpRight size={17} />
+              Ver Instagram <ArrowUpRight size={20} strokeWidth={3} />
             </a>
           </div>
         </section>
 
-        <section id="noticias" className="wrap" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid var(--line)' }}>
-          <div className="section-top" style={{ marginBottom: '40px' }}>
-            <div>
-              <span className="eyebrow">05 / Noticias</span>
-              <h2>
-                Lo que está <em>sonando.</em>
-              </h2>
-            </div>
-            <p>Novedades, lanzamientos y anuncios oficiales.</p>
-          </div>
+        {/* 6. CONTACTO & 7. NOSOTROS */}
+        <section id="contacto" className="wrap brutalist-section">
+          <span className="eyebrow">06 / Contacto</span>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
-            <article style={{ border: '1px solid var(--line)', padding: '20px', borderRadius: '8px' }}>
-              <span style={{ fontSize: '11px', color: 'var(--secondary-foreground)' }}>Próximamente</span>
-              <h3 style={{ fontSize: '16px', margin: '10px 0' }}>Nuevas fechas por anunciar</h3>
-              <p style={{ fontSize: '13px', color: 'var(--secondary-foreground)' }}>Muy pronto estaremos compartiendo las nuevas fechas de la gira. Mantente al pendiente.</p>
-            </article>
-            <article style={{ border: '1px solid var(--line)', padding: '20px', borderRadius: '8px' }}>
-              <span style={{ fontSize: '11px', color: 'var(--secondary-foreground)' }}>Lanzamiento</span>
-              <h3 style={{ fontSize: '16px', margin: '10px 0' }}>Nueva música en camino</h3>
-              <p style={{ fontSize: '13px', color: 'var(--secondary-foreground)' }}>Nuestros artistas están preparando grandes sorpresas en el estudio.</p>
-            </article>
-          </div>
-        </section>
-
-        <section id="conciertos" className="agenda-section wrap" style={{ marginTop: '80px', paddingTop: '80px', borderTop: '1px solid var(--line)' }}>
-          <div className="section-top" style={{ marginBottom: '40px' }}>
-            <div>
-              <span className="eyebrow">06 / Galería</span>
-              <h2>
-                Nuestros <em>conciertos.</em>
-              </h2>
-            </div>
-            <p>Momentos inolvidables capturados en vivo.</p>
-          </div>
-          
-          <ImageGallery images={[
-            "IMG_0208.JPG.jpeg",
-            "IMG_0210.JPG.jpeg",
-            "IMG_0223.PNG",
-            "IMG_0224.JPG.jpeg",
-            "IMG_0867.PNG",
-            "IMG_2079.JPG.jpeg",
-            "IMG_5436.PNG",
-            "IMG_8058.JPG.jpeg",
-            "IMG_8106.JPG.jpeg",
-            "IMG_8528.PNG",
-            "IMG_8706.JPG.jpeg",
-            "IMG_9164.JPG.jpeg",
-          ]} />
-        </section>
-
-        <section id="contacto" className="contact-section wrap">
-          <span className="eyebrow">07 / Hagamos que suceda</span>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px', marginTop: '40px', paddingBottom: '60px', borderBottom: '1px solid var(--line)' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '60px' }}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
-              <h2 style={{ paddingBottom: 0, borderBottom: 'none' }}>
-                Tu próximo evento
-                <br />
-                <em>empieza aquí.</em>
+              <h2>
+                Hagamos <em>ruido.</em>
               </h2>
-              <div style={{ fontSize: '13px', lineHeight: '1.6', color: 'var(--secondary-foreground)' }}>
-                <p style={{ marginBottom: '20px' }}>
-                  Booking, disponibilidad y nuevos proyectos.
-                  <br />
-                  Estamos a un mensaje de distancia.
+              
+              {/* NOSOTROS (Descripción) */}
+              <div style={{ padding: "30px", border: "2px solid var(--primary)", background: "var(--secondary)" }}>
+                <p style={{ fontSize: "16px", fontWeight: "700" }}>
+                  Lunar Music es una agencia de representación artística, Booking & Management nacional e internacional.
+                  Conectamos artistas con escenarios y acompañamos el talento en cada paso.
                 </p>
-                <a className="email-link" href={`mailto:${email}`}>
-                  {email}
-                </a>
+              </div>
+
+              {/* CONTACT INFO */}
+              <div>
+                <p style={{ marginBottom: '10px', textTransform: "uppercase", fontWeight: "900" }}>Información Directa</p>
+                <div style={{ borderLeft: "4px solid var(--accent)", paddingLeft: "20px" }}>
+                  <p style={{ fontSize: "24px", fontWeight: "900", marginBottom: "5px" }}>{contactName}</p>
+                  <p style={{ fontSize: "18px", marginBottom: "5px" }}>{phone}</p>
+                  <a href={`mailto:${email}`} style={{ fontSize: "18px", textDecoration: "underline", fontWeight: "700" }}>
+                    {email}
+                  </a>
+                </div>
               </div>
             </div>
             
-            <div style={{ width: '100%' }}>
+            <div style={{ width: '100%', padding: "30px", border: "4px solid var(--primary)", background: "var(--background)" }}>
+              <h3 style={{ marginBottom: "20px" }}>Escríbenos</h3>
               <ContactForm />
             </div>
           </div>
         </section>
+
       </main>
-      <footer className="site-footer wrap" style={{ borderTop: '1px solid var(--line)', padding: '40px 0', marginTop: '60px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
+
+      <footer className="site-footer wrap">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '40px' }}>
+          <div>
             <Image
               src="/lunar_logo_nobg.png"
               alt="Lunar Music"
-              width={90}
-              height={50}
-              className="brand-logo"
+              width={140}
+              height={60}
+              style={{ filter: "brightness(0) invert(1)" }}
             />
-            <span style={{ fontSize: '12px', color: 'var(--secondary-foreground)' }}>
-              © {new Date().getFullYear()} Lunar Music
-            </span>
+            <p style={{ marginTop: "20px", fontSize: "14px" }}>
+              © {new Date().getFullYear()} Lunar Music. Todos los derechos reservados.
+            </p>
           </div>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
-            <a href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              Instagram <ArrowUpRight size={14} />
+          <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap' }}>
+            <a href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              Instagram <ArrowUpRight size={18} strokeWidth={3} />
             </a>
-            <a href="#contacto" className="footer-link">
-              Contacto
-            </a>
-            <a href="#" className="back-top" style={{ color: 'var(--foreground)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '11px' }}>
-              Volver arriba ↑
-            </a>
+            <a href="#contacto">Contacto</a>
+            <a href="#" style={{ color: "var(--accent)" }}>Volver arriba ↑</a>
           </div>
         </div>
       </footer>
