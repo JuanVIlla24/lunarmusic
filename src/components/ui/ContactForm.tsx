@@ -31,7 +31,7 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} style={{ display: "grid", gap: "20px", marginTop: "40px", maxWidth: "600px" }}>
+    <form className="contact-form" onSubmit={handleSubmit} style={{ display: "grid", gap: "20px", maxWidth: "600px" }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           <label htmlFor="name" style={{ fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>Nombre</label>

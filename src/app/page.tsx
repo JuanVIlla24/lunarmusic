@@ -253,32 +253,29 @@ export default function Home() {
 
         <section id="contacto" className="contact-section wrap">
           <span className="eyebrow">05 / Hagamos que suceda</span>
-          <div className="contact-heading">
-            <h2>
-              Tu próximo evento
-              <br />
-              <em>empieza aquí.</em>
-            </h2>
-            <a
-              className="contact-arrow"
-              href={`mailto:${email}`}
-              aria-label="Escribir a Lunar Music"
-            >
-              <ArrowUpRight strokeWidth={1} />
-            </a>
-          </div>
           
-          <ContactForm />
-          
-          <div className="contact-bottom" style={{ marginTop: '60px' }}>
-            <a className="email-link" href={`mailto:${email}`}>
-              {email}
-            </a>
-            <p>
-              Booking, disponibilidad y nuevos proyectos.
-              <br />
-              Estamos a un mensaje de distancia.
-            </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '60px', marginTop: '40px', paddingBottom: '60px', borderBottom: '1px solid var(--line)' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+              <h2 style={{ paddingBottom: 0, borderBottom: 'none' }}>
+                Tu próximo evento
+                <br />
+                <em>empieza aquí.</em>
+              </h2>
+              <div style={{ fontSize: '13px', lineHeight: '1.6', color: 'var(--secondary-foreground)' }}>
+                <p style={{ marginBottom: '20px' }}>
+                  Booking, disponibilidad y nuevos proyectos.
+                  <br />
+                  Estamos a un mensaje de distancia.
+                </p>
+                <a className="email-link" href={`mailto:${email}`}>
+                  {email}
+                </a>
+              </div>
+            </div>
+            
+            <div style={{ width: '100%' }}>
+              <ContactForm />
+            </div>
           </div>
         </section>
       </main>

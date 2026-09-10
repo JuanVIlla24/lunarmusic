@@ -359,6 +359,19 @@ p {
   width: 100%;
   margin-top: 10px;
 }
+.site-footer {
+  margin-top: 60px;
+}
+.footer-link {
+  color: var(--secondary-foreground);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.footer-link:hover {
+  color: var(--accent);
+}
 .roster-note {
   display: flex;
   justify-content: space-between;
@@ -483,20 +496,12 @@ p {
 .contact-bottom p {
   font-size: 12px;
 }
-.site-footer {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  border-top: 1px solid var(--line);
-  padding-block: 25px;
-  font-size: 10px;
-  color: var(--secondary-foreground);
-}
-.site-footer > span {
-  margin-right: auto;
-}
 .back-top {
-  margin-left: 20px;
+  color: var(--secondary-foreground);
+  text-decoration: none;
+}
+.back-top:hover {
+  color: var(--foreground);
 }
 .skip-link {
   position: fixed;
