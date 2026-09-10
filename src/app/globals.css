@@ -197,14 +197,14 @@ em {
   flex: 0 0 100%;
   min-width: 0;
   position: relative;
-  aspect-ratio: 21/9;
+  aspect-ratio: 16/9; /* A little taller to accommodate flyers */
 }
 @media (max-width: 768px) {
-  .embla__slide { aspect-ratio: 4/3; }
+  .embla__slide { aspect-ratio: 1/1; }
 }
 
 .embla__slide img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* Artist Card */
