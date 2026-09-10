@@ -6,6 +6,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { artists } from "@/data/artists";
 import { ArtistCard } from "@/components/ui/ArtistCard";
 import { InstagramEmbed } from "@/components/ui/InstagramEmbed";
+import { ContactForm } from "@/components/ui/ContactForm";
 
 const email = "contacto@lunarmusic.com.mx";
 
@@ -66,6 +67,29 @@ export default function Home() {
           </div>
         </section>
 
+        <section id="nosotros" className="about-section wrap" style={{ paddingBottom: '80px' }}>
+          <div className="section-top">
+            <div>
+              <span className="eyebrow">01 / Nosotros</span>
+              <h2>
+                Pasión por <em>el sonido.</em>
+              </h2>
+            </div>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '20px' }}>
+            <p style={{ fontSize: '15px', lineHeight: '1.8', color: 'var(--foreground)', fontWeight: 500 }}>
+              Somos una agencia boutique de booking y management con sede en México. 
+              Creemos firmemente en el talento genuino y en el poder de la música para crear momentos inolvidables. 
+              Nuestro objetivo es ser el puente que une a los artistas con los escenarios que merecen.
+            </p>
+            <p style={{ fontSize: '15px', lineHeight: '1.8', color: 'var(--secondary-foreground)' }}>
+              Trabajamos mano a mano con creadores, promotores y festivales para asegurar 
+              que cada presentación sea única. En Lunar Music, no solo vendemos fechas; 
+              construimos carreras y acompañamos la visión artística en cada paso del camino.
+            </p>
+          </div>
+        </section>
+
         <section
           id="artistas"
           className="artists-section wrap"
@@ -73,7 +97,7 @@ export default function Home() {
         >
           <div className="section-top">
             <div>
-              <span className="eyebrow">01 / Nuestro roster</span>
+              <span className="eyebrow">02 / Nuestro roster</span>
               <h2 id="artists-title">
                 Talento con <em>identidad.</em>
               </h2>
@@ -147,7 +171,7 @@ export default function Home() {
         <section id="servicios" className="agency-section">
           <div className="wrap agency-grid">
             <div>
-              <span className="eyebrow">02 / La agencia</span>
+              <span className="eyebrow">03 / La agencia</span>
               <h2>
                 Detrás de la música,
                 <br />
@@ -194,7 +218,7 @@ export default function Home() {
         <section id="agenda" className="agenda-section wrap">
           <div className="section-top">
             <div>
-              <span className="eyebrow">03 / En vivo</span>
+              <span className="eyebrow">04 / En vivo</span>
               <h2>
                 Lo más <em>reciente.</em>
               </h2>
@@ -228,7 +252,7 @@ export default function Home() {
         </section>
 
         <section id="contacto" className="contact-section wrap">
-          <span className="eyebrow">04 / Hagamos que suceda</span>
+          <span className="eyebrow">05 / Hagamos que suceda</span>
           <div className="contact-heading">
             <h2>
               Tu próximo evento
@@ -243,14 +267,17 @@ export default function Home() {
               <ArrowUpRight strokeWidth={1} />
             </a>
           </div>
-          <div className="contact-bottom">
+          
+          <ContactForm />
+          
+          <div className="contact-bottom" style={{ marginTop: '60px' }}>
             <a className="email-link" href={`mailto:${email}`}>
               {email}
             </a>
             <p>
               Booking, disponibilidad y nuevos proyectos.
               <br />
-              Estamos a un correo de distancia.
+              Estamos a un mensaje de distancia.
             </p>
           </div>
         </section>
