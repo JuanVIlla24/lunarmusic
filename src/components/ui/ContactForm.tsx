@@ -15,14 +15,43 @@ export function ContactForm() {
     }, 1000);
   };
 
+  const inputStyle = {
+    width: "100%",
+    padding: "15px",
+    border: "2px solid var(--primary)",
+    background: "var(--background)",
+    outline: "none",
+    fontSize: "16px",
+    fontWeight: "600",
+    color: "var(--foreground)",
+    fontFamily: "var(--font-sans)",
+  };
+
+  const labelStyle = {
+    fontSize: "14px",
+    fontWeight: "900",
+    textTransform: "uppercase" as const,
+    letterSpacing: "-0.02em",
+  };
+
   if (status === "success") {
     return (
-      <div className="contact-success" style={{ padding: "40px 0", borderTop: "1px solid var(--line)", marginTop: "30px" }}>
-        <h3>¡Mensaje enviado!</h3>
-        <p style={{ marginTop: "10px" }}>Nos pondremos en contacto contigo lo más pronto posible.</p>
+      <div className="contact-success" style={{ padding: "40px", border: "4px solid var(--primary)", background: "var(--accent)" }}>
+        <h3 style={{ marginBottom: "10px", color: "var(--primary)" }}>¡Mensaje enviado!</h3>
+        <p style={{ fontWeight: "700", color: "var(--primary)" }}>Nos pondremos en contacto contigo lo más pronto posible.</p>
         <button 
           onClick={() => setStatus("idle")}
-          style={{ marginTop: "20px", padding: "10px 20px", border: "1px solid var(--foreground)", borderRadius: "999px", background: "transparent", cursor: "pointer", fontWeight: "600", textTransform: "uppercase", fontSize: "12px", letterSpacing: "0.05em" }}
+          style={{ 
+            marginTop: "20px", 
+            padding: "12px 24px", 
+            border: "2px solid var(--primary)", 
+            background: "var(--primary)", 
+            color: "var(--primary-foreground)",
+            cursor: "pointer", 
+            fontWeight: "900", 
+            textTransform: "uppercase", 
+            fontSize: "14px" 
+          }}
         >
           Enviar otro mensaje
         </button>
@@ -31,48 +60,38 @@ export function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} style={{ display: "grid", gap: "20px", maxWidth: "600px" }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+    <form className="contact-form" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px", width: "100%" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "20px", width: "100%" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          <label htmlFor="name" style={{ fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>Nombre</label>
-          <input required type="text" id="name" name="name" style={{ padding: "12px", border: "1px solid var(--line)", background: "transparent", outline: "none", fontSize: "14px" }} placeholder="Tu nombre" />
+          <label htmlFor="name" style={labelStyle}>Nombre</label>
+          <input required type="text" id="name" name="name" style={inputStyle} placeholder="Tu nombre" />
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-          <label htmlFor="email" style={{ fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>Correo electrónico</label>
-          <input required type="email" id="email" name="email" style={{ padding: "12px", border: "1px solid var(--line)", background: "transparent", outline: "none", fontSize: "14px" }} placeholder="tucorreo@ejemplo.com" />
+          <label htmlFor="email" style={labelStyle}>Correo</label>
+          <input required type="email" id="email" name="email" style={inputStyle} placeholder="correo@ejemplo.com" />
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label htmlFor="subject" style={{ fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>Asunto</label>
-        <input required type="text" id="subject" name="subject" style={{ padding: "12px", border: "1px solid var(--line)", background: "transparent", outline: "none", fontSize: "14px" }} placeholder="Booking, Management, Duda..." />
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
+        <label htmlFor="subject" style={labelStyle}>Asunto</label>
+        <input required type="text" id="subject" name="subject" style={inputStyle} placeholder="Booking, Management..." />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-        <label htmlFor="message" style={{ fontSize: "12px", fontWeight: "600", textTransform: "uppercase", letterSpacing: "0.05em" }}>Mensaje</label>
-        <textarea required id="message" name="message" rows={4} style={{ padding: "12px", border: "1px solid var(--line)", background: "transparent", outline: "none", fontSize: "14px", resize: "vertical" }} placeholder="Cuéntanos sobre tu evento o proyecto..."></textarea>
+      <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
+        <label htmlFor="message" style={labelStyle}>Mensaje</label>
+        <textarea required id="message" name="message" rows={4} style={{ ...inputStyle, resize: "vertical" }} placeholder="Cuéntanos sobre tu evento..."></textarea>
       </div>
       <button 
         type="submit" 
         disabled={status === "submitting"}
+        className="header-contact"
         style={{ 
-          justifySelf: "start",
-          display: "flex", 
-          alignItems: "center", 
-          gap: "12px", 
-          background: "var(--foreground)", 
-          color: "var(--background)",
-          padding: "12px 28px",
-          borderRadius: "999px",
-          border: "none",
+          alignSelf: "flex-start",
+          border: "2px solid var(--primary)",
           cursor: status === "submitting" ? "not-allowed" : "pointer",
-          fontWeight: "600",
-          textTransform: "uppercase",
-          letterSpacing: "0.05em",
-          fontSize: "12px",
-          marginTop: "10px",
-          opacity: status === "submitting" ? 0.7 : 1
+          opacity: status === "submitting" ? 0.7 : 1,
+          marginTop: "10px"
         }}
       >
-        {status === "submitting" ? "Enviando..." : "Enviar mensaje"} <ArrowUpRight size={16} />
+        {status === "submitting" ? "Enviando..." : "Enviar"} <ArrowUpRight size={18} strokeWidth={3} />
       </button>
     </form>
   );
