@@ -279,45 +279,32 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="site-footer wrap" style={{ borderTop: '1px solid var(--line)', padding: '80px 0 40px', marginTop: '60px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '40px', marginBottom: '80px' }}>
-          <div>
+      <footer className="site-footer wrap" style={{ borderTop: '1px solid var(--line)', padding: '40px 0', marginTop: '60px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
             <Image
               src="/lunar_logo_nobg.png"
               alt="Lunar Music"
-              width={140}
-              height={78}
+              width={90}
+              height={50}
               className="brand-logo"
             />
-            <p style={{ marginTop: '20px', fontSize: '14px', color: 'var(--secondary-foreground)', maxWidth: '250px' }}>
-              Booking & Management de artistas en México. Conectando talento con grandes escenarios.
-            </p>
+            <span style={{ fontSize: '12px', color: 'var(--secondary-foreground)' }}>
+              © {new Date().getFullYear()} Lunar Music
+            </span>
           </div>
-          <div>
-            <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '20px', color: 'var(--foreground)' }}>Navegación</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li><a href="#artistas" className="footer-link">Roster</a></li>
-              <li><a href="#servicios" className="footer-link">Agencia</a></li>
-              <li><a href="#agenda" className="footer-link">En Vivo</a></li>
-              <li><a href="#contacto" className="footer-link">Contacto</a></li>
-            </ul>
+          
+          <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
+            <a href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              Instagram <ArrowUpRight size={14} />
+            </a>
+            <a href="#contacto" className="footer-link">
+              Contacto
+            </a>
+            <a href="#" className="back-top" style={{ color: 'var(--foreground)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '11px' }}>
+              Volver arriba ↑
+            </a>
           </div>
-          <div>
-            <h4 style={{ fontSize: '13px', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '20px', color: 'var(--foreground)' }}>Redes Sociales</h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <li>
-                <a href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" className="footer-link" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                  Instagram <ArrowUpRight size={14} />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--line)', paddingTop: '30px', fontSize: '12px', color: 'var(--secondary-foreground)' }}>
-          <span>© {new Date().getFullYear()} Lunar Music. Todos los derechos reservados.</span>
-          <a href="#" className="back-top" style={{ color: 'var(--foreground)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Volver arriba ↑
-          </a>
         </div>
       </footer>
     </div>
