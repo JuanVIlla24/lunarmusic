@@ -1,185 +1,284 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
+import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
-import { mockArtists } from "@/data/artists";
+import { artists } from "@/data/artists";
 import { ArtistCard } from "@/components/ui/ArtistCard";
-import { Button } from "@/components/ui/Button";
-import { Calendar, Mail } from "lucide-react";
+
+const email = "contacto@lunarmusic.com.mx";
 
 export default function Home() {
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
-    dragFree: true,
   });
-
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground font-sans selection:bg-primary selection:text-white">
-      
-      {/* HEADER / NAV */}
-      <header className="flex items-center justify-between px-6 py-4 md:px-10 max-w-7xl mx-auto w-full">
-        <Image 
-          src="/lunar_logo_nobg.png" 
-          alt="Lunar Music Logo" 
-          width={130} 
-          height={40} 
-          className="object-contain"
-        />
-        <nav className="hidden md:flex gap-8 text-xs font-semibold tracking-widest uppercase text-secondary-foreground">
-          <a href="#artistas" className="hover:text-primary transition-colors">Roster</a>
-          <a href="#agenda" className="hover:text-primary transition-colors">Agenda</a>
-          <a href="#contacto" className="hover:text-primary transition-colors">Contacto</a>
+    <div className="site-shell">
+      <a className="skip-link" href="#contenido">
+        Ir al contenido
+      </a>
+      <header className="site-header wrap">
+        <a href="#" aria-label="Lunar Music, inicio">
+          <Image
+            src="/lunar_logo_nobg.png"
+            alt="Lunar Music"
+            width={116}
+            height={64}
+            priority
+            className="brand-logo"
+          />
+        </a>
+        <nav aria-label="Navegación principal">
+          <a href="#artistas">Artistas</a>
+          <a href="#servicios">Agencia</a>
+          <a href="#agenda">Agenda</a>
         </nav>
+        <a className="header-contact" href="#contacto">
+          Hablemos <ArrowUpRight size={16} />
+        </a>
       </header>
-
-      <main className="flex-grow">
-        {/* HERO SECTION */}
-        <section className="px-6 pt-8 pb-16 md:pt-12 md:pb-20 md:px-10 max-w-7xl mx-auto w-full text-center md:text-left flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 space-y-6">
-            <h1 className="text-5xl md:text-6xl font-light tracking-tighter text-primary leading-tight">
-              Elevando el <br />
-              <span className="font-bold">Talento Musical.</span>
+      <main id="contenido">
+        <section className="hero wrap">
+          <div className="eyebrow">
+            <span className="status-dot" /> Booking & Management · México
+          </div>
+          <div className="hero-heading">
+            <h1>
+              La música nos mueve.
+              <br />
+              <em>El talento nos conecta.</em>
             </h1>
-            <p className="text-lg md:text-xl text-secondary-foreground max-w-lg font-light leading-relaxed mx-auto md:mx-0">
-              Agencia boutique de Booking & Management. Conectamos proyectos excepcionales con los mejores escenarios, promotores y festivales.
+            <div className="orbit-mark" aria-hidden="true">
+              <span />
+            </div>
+          </div>
+          <div className="hero-bottom">
+            <p>
+              Conectamos artistas con escenarios.
+              <br />
+              Acompañamos el talento en cada paso.
             </p>
-            <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-              <a href="#contacto">
-                <Button size="md" className="w-full sm:w-auto font-semibold uppercase tracking-widest text-xs">Contratar Artistas</Button>
-              </a>
-              <a href="#artistas">
-                <Button variant="outline" size="md" className="w-full sm:w-auto font-semibold uppercase tracking-widest text-xs">Ver Catálogo</Button>
-              </a>
-            </div>
-          </div>
-          <div className="flex-1 w-full aspect-square md:aspect-[4/3] bg-secondary rounded-[1.5rem] relative overflow-hidden group">
-             {/* Imagen hero placeholder - elegante y abstracta */}
-             <div className="absolute inset-0 bg-gradient-to-br from-zinc-200 to-zinc-50 mix-blend-multiply transition-transform duration-700 group-hover:scale-105" />
-             <div className="absolute inset-0 flex items-center justify-center text-zinc-400">
-                <span className="font-light tracking-[0.2em] uppercase text-xs">LUNAR MUSIC AGENCY</span>
-             </div>
-          </div>
-        </section>
-
-        {/* ARTISTS CAROUSEL SECTION */}
-        <section id="artistas" className="py-20 bg-white border-t border-zinc-100 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 mb-10 flex flex-col md:flex-row md:justify-between md:items-end gap-4">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-2">Nuestro <span className="font-bold">Roster</span></h2>
-              <p className="text-secondary-foreground font-light text-lg">Talento exclusivo disponible para booking.</p>
-            </div>
-          </div>
-          
-          <div className="pl-6 md:pl-10 max-w-[1400px] mx-auto">
-            <div className="embla cursor-grab active:cursor-grabbing" ref={emblaRef}>
-              <div className="embla__container flex gap-6">
-                {mockArtists.map((artist) => (
-                  <div className="embla__slide flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_30%] min-w-0" key={artist.id}>
-                    <ArtistCard artist={artist} />
-                  </div>
-                ))}
-                {/* Dummy cards for demonstration of carousel */}
-                {[2,3,4].map((i) => (
-                  <div className="embla__slide flex-[0_0_85%] sm:flex-[0_0_45%] md:flex-[0_0_30%] min-w-0" key={i}>
-                    <ArtistCard artist={{...mockArtists[0], id: i.toString(), name: `Artista ${i}`}} />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* AGENDA SECTION */}
-        <section id="agenda" className="py-20 px-6 md:px-10 max-w-7xl mx-auto w-full">
-          <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-10 text-center">Próximos <span className="font-bold">Shows</span></h2>
-          <div className="max-w-3xl mx-auto divide-y divide-zinc-200 border-t border-b border-zinc-200">
-            {/* Ejemplo de un show */}
-            <div className="py-6 flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:bg-zinc-50 transition-colors px-4 -mx-4 rounded-xl">
-              <div className="flex items-center gap-8">
-                <div className="text-center w-16">
-                  <span className="block text-xs font-bold text-zinc-400 uppercase tracking-[0.2em]">OCT</span>
-                  <span className="block text-3xl font-light text-primary mt-1">14</span>
-                </div>
-                <div>
-                  <h4 className="text-xl font-bold tracking-tight">Artista Ejemplo</h4>
-                  <p className="text-secondary-foreground font-light flex items-center gap-2 text-sm mt-1">
-                    Club de Prueba, CDMX
-                  </p>
-                </div>
-              </div>
-              <Button variant="outline" size="sm" className="hidden md:flex uppercase tracking-widest text-xs font-semibold">Ver Detalles</Button>
-            </div>
-            <div className="py-10 text-center text-zinc-400 font-light tracking-wider uppercase text-sm">
-              Más fechas por anunciarse pronto...
-            </div>
-          </div>
-        </section>
-
-        {/* INSTAGRAM SECTION */}
-        <section className="py-24 bg-white border-t border-zinc-100">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 text-center mb-12">
-            <a href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" className="group inline-block">
-              <h2 className="text-3xl md:text-5xl font-light tracking-tighter mb-3 group-hover:text-zinc-600 transition-colors">@lunarmusicmx</h2>
-              <span className="text-xs font-bold tracking-widest uppercase text-zinc-400 group-hover:text-black transition-colors">
-                Síguenos en Instagram
-              </span>
+            <a className="text-link" href="#artistas">
+              Conoce nuestros artistas <ArrowDown size={18} />
             </a>
           </div>
-          <div className="max-w-[1600px] mx-auto px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {['DcUxCRLgCJb', 'DdDCD2gjsZG', 'DcPBrJBFQKG', 'Dc_ghVTDu_E'].map((id) => (
-              <div key={id} className="w-full h-[500px] rounded-xl overflow-hidden bg-white shadow-sm border border-zinc-200">
-                <iframe 
-                  src={`https://www.instagram.com/p/${id}/embed`}
-                  className="w-full h-full"
-                  frameBorder="0" 
-                  scrolling="no" 
-                  allowTransparency
-                />
-              </div>
-            ))}
+        </section>
+
+        <section
+          id="artistas"
+          className="artists-section wrap"
+          aria-labelledby="artists-title"
+        >
+          <div className="section-top">
+            <div>
+              <span className="eyebrow">01 / Nuestro roster</span>
+              <h2 id="artists-title">
+                Talento con <em>identidad.</em>
+              </h2>
+            </div>
+            <div className="carousel-controls">
+              <button
+                onClick={() => emblaApi?.scrollPrev()}
+                aria-label="Artistas anteriores"
+                aria-controls="artist-carousel"
+              >
+                <ArrowLeft size={20} />
+              </button>
+              <button
+                onClick={() => emblaApi?.scrollNext()}
+                aria-label="Siguientes artistas"
+                aria-controls="artist-carousel"
+              >
+                <ArrowRight size={20} />
+              </button>
+            </div>
+          </div>
+          <div
+            className="carousel"
+            ref={emblaRef}
+            id="artist-carousel"
+            role="region"
+            aria-label="Carrusel de artistas"
+          >
+            <div className="carousel-track">
+              {artists.length
+                ? artists.map((artist) => (
+                    <div className="artist-slide" key={artist.id}>
+                      <ArtistCard artist={artist} />
+                    </div>
+                  ))
+                : ["01", "02", "03"].map((number, index) => (
+                    <div className="artist-slide" key={number}>
+                      <article className="artist-card">
+                        <div className={`artist-placeholder tone-${index}`}>
+                          <span className="placeholder-top">
+                            LUNAR MUSIC <span>{number}</span>
+                          </span>
+                          <div
+                            className="placeholder-orbit"
+                            aria-hidden="true"
+                          />
+                          <span className="placeholder-bottom">
+                            Nuevas conexiones.
+                            <br />
+                            <em>Próximamente.</em>
+                          </span>
+                        </div>
+                        <div className="artist-info">
+                          <span className="eyebrow">Roster en preparación</span>
+                          <h3>Lo que viene suena bien.</h3>
+                          <p>Pronto conocerás a nuestros artistas.</p>
+                        </div>
+                      </article>
+                    </div>
+                  ))}
+            </div>
+          </div>
+          <div className="roster-note">
+            <span>Artistas, proyectos y nuevas posibilidades.</span>
+            <a href="#contacto">
+              Consulta nuestro roster <ArrowUpRight size={15} />
+            </a>
           </div>
         </section>
 
-        {/* CONTACT SECTION */}
-        <section id="contacto" className="py-24 bg-primary text-primary-foreground text-center px-6">
-          <div className="max-w-2xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-6xl font-light tracking-tighter">¿Listo para el próximo <span className="font-bold">evento?</span></h2>
-            <p className="text-zinc-400 text-lg font-light leading-relaxed">
-              Ponte en contacto directo con nosotros para consultar disponibilidad, cotizaciones y fechas abiertas.
-            </p>
-            <div className="flex justify-center gap-4 pt-6">
-              <a href="mailto:contacto@lunarmusic.com.mx">
-                <Button size="lg" className="!bg-white !text-black hover:!bg-zinc-200 flex items-center gap-2 h-14 px-8 uppercase tracking-widest text-xs font-bold">
-                  <Mail size={18} /> Escríbenos un correo
-                </Button>
-              </a>
+        <section id="servicios" className="agency-section">
+          <div className="wrap agency-grid">
+            <div>
+              <span className="eyebrow">02 / La agencia</span>
+              <h2>
+                Detrás de la música,
+                <br />
+                <em>junto al artista.</em>
+              </h2>
+              <p className="agency-intro">
+                Cada proyecto tiene su propia voz. En Lunar Music creamos
+                conexiones para que llegue más lejos.
+              </p>
             </div>
+            <div className="services">
+              <article>
+                <span className="service-number">01</span>
+                <div>
+                  <h3>Booking</h3>
+                  <p>
+                    Conectamos a promotores, venues y festivales con el talento
+                    para su próximo evento. Hablemos de artistas, fechas y
+                    disponibilidad.
+                  </p>
+                  <a className="text-link" href="#contacto">
+                    Planeemos tu próximo evento <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </article>
+              <article>
+                <span className="service-number">02</span>
+                <div>
+                  <h3>Management</h3>
+                  <p>
+                    Acompañamos el desarrollo artístico y la representación de
+                    nuestros proyectos, construyendo una visión compartida para
+                    cada etapa.
+                  </p>
+                  <a className="text-link" href="#contacto">
+                    Conoce la agencia <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="agenda" className="agenda-section wrap">
+          <div className="section-top">
+            <div>
+              <span className="eyebrow">03 / En vivo</span>
+              <h2>
+                Nos vemos <em>ahí.</em>
+              </h2>
+            </div>
+            <p>La música se vive en el escenario.</p>
+          </div>
+          <div className="agenda-empty">
+            <span className="agenda-star" aria-hidden="true">
+              ✳
+            </span>
+            <div>
+              <h3>Próximas fechas por anunciar.</h3>
+              <p>Sigue a Lunar Music para conocer nuestros próximos shows.</p>
+            </div>
+            <a
+              className="text-link"
+              href="https://www.instagram.com/lunarmusicmx"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram <ArrowUpRight size={17} />
+            </a>
+          </div>
+        </section>
+
+        <section id="contacto" className="contact-section wrap">
+          <span className="eyebrow">04 / Hagamos que suceda</span>
+          <div className="contact-heading">
+            <h2>
+              Tu próximo evento
+              <br />
+              <em>empieza aquí.</em>
+            </h2>
+            <a
+              className="contact-arrow"
+              href={`mailto:${email}`}
+              aria-label="Escribir a Lunar Music"
+            >
+              <ArrowUpRight strokeWidth={1} />
+            </a>
+          </div>
+          <div className="contact-bottom">
+            <a className="email-link" href={`mailto:${email}`}>
+              {email}
+            </a>
+            <p>
+              Booking, disponibilidad y nuevos proyectos.
+              <br />
+              Estamos a un correo de distancia.
+            </p>
           </div>
         </section>
       </main>
-
-      {/* FOOTER */}
-      <footer className="bg-primary text-zinc-500 py-12 px-6 border-t border-zinc-800">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <Image 
-            src="/lunar_logo_nobg.png" 
-            alt="Lunar Music Logo" 
-            width={100} 
-            height={35} 
-            className="opacity-50 invert brightness-0"
-          />
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="#" className="hover:text-white transition-colors" aria-label="Facebook">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
-          </div>
-          <p className="text-sm">© {new Date().getFullYear()} Lunar Music. Todos los derechos reservados.</p>
-        </div>
+      <footer className="site-footer wrap">
+        <Image
+          src="/lunar_logo_nobg.png"
+          alt="Lunar Music"
+          width={90}
+          height={50}
+          className="brand-logo"
+        />
+        <span>© {new Date().getFullYear()} Lunar Music</span>
+        <a
+          href="https://www.instagram.com/lunarmusicmx"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Lunar Music en Instagram"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            aria-hidden="true"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+          </svg>
+        </a>
+        <a href="#" className="back-top">
+          Volver arriba ↑
+        </a>
       </footer>
     </div>
   );

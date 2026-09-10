@@ -1,40 +1,46 @@
-import React from "react";
 import Image from "next/image";
-import { Artist } from "@/data/artists";
-import { Button } from "./Button";
+import { ArrowUpRight } from "lucide-react";
+import type { Artist } from "@/data/artists";
 
-interface ArtistCardProps {
-  artist: Artist;
-}
-
-export const ArtistCard: React.FC<ArtistCardProps> = ({ artist }) => {
+export function ArtistCard({ artist }: { artist: Artist }) {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-2xl bg-secondary transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-accent/20">
-      {/* Aspect ratio container for the image */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-zinc-900">
+    <article className="artist-card">
+      <div className="artist-photo">
         <Image
           src={artist.imageUrl}
           alt={artist.name}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 640px) 82vw, (max-width: 1000px) 45vw, 33vw"
+          className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80" />
       </div>
-      
-      {/* Content */}
-      <div className="absolute bottom-0 left-0 w-full p-6 flex flex-col gap-2">
-        <span className="text-xs font-semibold tracking-widest text-accent uppercase">
-          {artist.genre}
-        </span>
-        <h3 className="text-2xl font-bold text-white">{artist.name}</h3>
-        <p className="text-sm text-zinc-300 line-clamp-2">{artist.shortBio}</p>
-        
-        <div className="mt-4 flex gap-3 opacity-0 translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
-          <Button variant="primary" size="sm" className="w-full">
-            Ver Perfil
-          </Button>
+      <div className="artist-info">
+        <span className="eyebrow">{artist.genre}</span>
+        <h3>{artist.name}</h3>
+        <p>{artist.shortBio}</p>
+        <div className="artist-socials">
+          {Object.entries(artist.socialLinks)
+            .filter(([, url]) => url)
+            .map(([name, url]) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${name} de ${artist.name}`}
+              >
+                {name}
+                <ArrowUpRight size={13} />
+              </a>
+            ))}
         </div>
+        <a
+          className="text-link artist-booking"
+          href={`mailto:contacto@lunarmusic.com.mx?subject=${encodeURIComponent(`Booking — ${artist.name}`)}`}
+        >
+          Contratar <ArrowUpRight size={16} />
+        </a>
       </div>
-    </div>
+    </article>
   );
-};
+}
