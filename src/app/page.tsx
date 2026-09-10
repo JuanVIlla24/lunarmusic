@@ -24,7 +24,6 @@ const pressImages = [
 
 const flyerImages = [
   "IMG_2079.JPG.jpeg",
-  "IMG_5436.PNG",
   "IMG_8058.JPG.jpeg",
   "IMG_8106.JPG.jpeg",
   "IMG_8528.PNG",

@@ -38,15 +38,23 @@ export function ImageGallery({ images }: { images: string[] }) {
           <div 
             key={i} 
             onClick={() => openModal(i)}
-            style={{ position: 'relative', aspectRatio: '1', borderRadius: '4px', overflow: 'hidden', cursor: 'pointer' }}
+            style={{ 
+              position: 'relative', 
+              aspectRatio: '1', 
+              borderRadius: '0', // Brutalist
+              overflow: 'hidden', 
+              cursor: 'pointer',
+              background: 'var(--primary)',
+              border: '3px solid var(--primary)'
+            }}
+            className="gallery-thumb"
           >
             <Image
               src={`/conciertos/${img}`}
               alt={`Concierto ${i + 1}`}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw"
-              style={{ objectFit: 'cover', transition: 'transform 0.3s ease' }}
-              className="gallery-thumb"
+              style={{ objectFit: 'contain', transition: 'transform 0.3s ease' }}
             />
           </div>
         ))}
