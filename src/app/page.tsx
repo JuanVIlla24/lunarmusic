@@ -23,12 +23,11 @@ const pressImages = [
 ];
 
 const flyerImages = [
-  "daniel_quien_o_similar1.jpeg",
-  "pal_norte_o_similar2.jpeg",
-  "serbia_o_similar3.jpeg",
-  "outsiders_o_similar4.jpeg",
+  "IMG_2079.JPG.jpeg",
   "IMG_8106.JPG.jpeg",
   "IMG_8528.PNG",
+  "IMG_8706.JPG.jpeg",
+  "IMG_9164.JPG.jpeg",
 ];
 
 export default function Home() {
