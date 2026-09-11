@@ -179,7 +179,14 @@ export default function Home() {
                 <p style={{ marginBottom: '10px', textTransform: "uppercase", fontWeight: "900" }}>Información Directa</p>
                 <div style={{ borderLeft: "4px solid var(--accent)", paddingLeft: "20px" }}>
                   <p style={{ fontSize: "24px", fontWeight: "900", marginBottom: "5px" }}>{contactName}</p>
-                  <p style={{ fontSize: "18px", marginBottom: "5px" }}>{phone}</p>
+                  <a 
+                    href={`https://wa.me/52${phone.replace(/\D/g, '')}?text=Hola,%20me%20gustaría%20solicitar%20información.`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ fontSize: "18px", marginBottom: "5px", display: "block", textDecoration: "underline", fontWeight: "700" }}
+                  >
+                    {phone} (WhatsApp)
+                  </a>
                   <a href={`mailto:${email}`} style={{ fontSize: "18px", textDecoration: "underline", fontWeight: "700" }}>
                     {email}
                   </a>
