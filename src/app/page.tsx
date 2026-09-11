@@ -17,13 +17,19 @@ const contactName = "Fernando Luna";
 const pressImages = [
   "IMG_8706.JPG.jpeg",
   "IMG_0208.JPG.jpeg",
-  "IMG_0210.JPG.jpeg",
-  "IMG_0223.PNG",
-  "IMG_0224.JPG.jpeg",
-  "IMG_0867.PNG",
+  "IMG_8341.jpg",
+  "IMG_8761.jpg",
+  "IMG_9057.jpg",
 ];
 
 const flyerImages = [
+  "IMG_0224.JPG.jpeg",
+  "IMG_0223.PNG",
+  "IMG_0867.PNG",
+  "IMG_0210.JPG.jpeg",
+  "IMG_5436.PNG",
+  "5F1B76C1-E410-4F7F-8242-30EA81B69223.PNG",
+  "IMG_8058.JPG.jpeg",
   "IMG_2079.JPG.jpeg",
   "IMG_8106.JPG.jpeg",
   "IMG_8528.PNG",
