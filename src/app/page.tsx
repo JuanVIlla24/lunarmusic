@@ -197,27 +197,26 @@ export default function Home() {
       </main>
 
       <footer className="site-footer wrap">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '40px' }}>
-          <div>
-            <Image
-              src="/lunar_logo_nobg.png"
-              alt="Lunar Music"
-              width={140}
-              height={60}
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
-            <p style={{ marginTop: "20px", fontSize: "14px" }}>
-              © {new Date().getFullYear()} Lunar Music. Todos los derechos reservados.
-            </p>
-          </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '30px', textAlign: 'center' }}>
+          <Image
+            src="/lunar_logo_nobg.png"
+            alt="Lunar Music"
+            width={140}
+            height={60}
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
           
-          <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '30px', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href="https://www.instagram.com/lunarmusicmx" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
               Instagram <ArrowUpRight size={18} strokeWidth={3} />
             </a>
             <a href="#contacto">Contacto</a>
             <a href="#" style={{ color: "var(--accent)" }}>Volver arriba ↑</a>
           </div>
+
+          <p style={{ fontSize: "14px", opacity: 0.7, textTransform: "uppercase" }}>
+            © {new Date().getFullYear()} Lunar Music. Todos los derechos reservados.
+          </p>
         </div>
       </footer>
     </div>
