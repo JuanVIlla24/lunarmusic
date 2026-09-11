@@ -207,6 +207,17 @@ em {
   object-fit: contain;
 }
 
+.artist-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+@media (min-width: 640px) {
+  .artist-slide { flex: 0 0 calc(50% - 12px); }
+}
+@media (min-width: 1024px) {
+  .artist-slide { flex: 0 0 calc(33.333% - 16px); }
+}
+
 /* Artist Card */
 .artist-card {
   display: block;

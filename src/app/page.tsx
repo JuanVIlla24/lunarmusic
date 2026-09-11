@@ -106,7 +106,7 @@ export default function Home() {
           <div className="embla" ref={emblaRef} style={{ background: "transparent", border: "none" }}>
             <div className="embla__container" style={{ gap: "24px" }}>
               {artists.map((artist) => (
-                <div key={artist.id} className="embla__slide" style={{ flex: "0 0 320px", aspectRatio: "auto" }}>
+                <div key={artist.id} className="embla__slide artist-slide">
                   <ArtistCard artist={artist} />
                 </div>
               ))}
