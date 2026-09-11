@@ -188,7 +188,7 @@ em {
 .embla {
   overflow: hidden;
   border: 3px solid var(--primary);
-  background: var(--primary);
+  background: var(--background);
 }
 .embla__container {
   display: flex;
