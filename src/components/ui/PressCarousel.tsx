@@ -6,7 +6,7 @@ import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-export function PressCarousel({ images }: { images: string[] }) {
+export function PressCarousel({ images }: { images: { src: string; caption: string }[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 5000 })]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [modalIndex, setModalIndex] = useState<number | null>(null);
@@ -60,7 +60,7 @@ export function PressCarousel({ images }: { images: string[] }) {
       <div style={{ position: "relative" }}>
         <div className="embla" ref={emblaRef}>
           <div className="embla__container">
-            {images.map((src, index) => (
+            {images.map((img, index) => (
               <div 
                 className="embla__slide" 
                 key={index} 
@@ -68,12 +68,28 @@ export function PressCarousel({ images }: { images: string[] }) {
                 style={{ cursor: "pointer" }}
               >
                 <Image
-                  src={`/conciertos/${src}`}
+                  src={`/conciertos/${img.src}`}
                   alt={`Noticia ${index + 1}`}
                   fill
                   priority={index === 0}
                   sizes="100vw"
                 />
+                <div style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background: "var(--primary)",
+                  color: "var(--primary-foreground)",
+                  padding: "15px",
+                  fontWeight: "900",
+                  textTransform: "uppercase",
+                  fontSize: "14px",
+                  textAlign: "center",
+                  borderTop: "3px solid var(--primary)"
+                }}>
+                  {img.caption}
+                </div>
               </div>
             ))}
           </div>
@@ -144,7 +160,7 @@ export function PressCarousel({ images }: { images: string[] }) {
           
           <div style={{ position: "relative", width: "90%", height: "90%", maxWidth: "1200px" }}>
             <Image
-              src={`/conciertos/${images[modalIndex]}`}
+              src={`/conciertos/${images[modalIndex].src}`}
               alt={`Noticia ${modalIndex + 1}`}
               fill
               style={{ objectFit: 'contain' }}

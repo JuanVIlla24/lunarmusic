@@ -15,11 +15,11 @@ const phone = "5544775254";
 const contactName = "Fernando Luna";
 
 const pressImages = [
-  "IMG_8706.JPG.jpeg",
-  "IMG_0208.JPG.jpeg",
-  "IMG_8341.jpg",
-  "IMG_8761.jpg",
-  "IMG_9057.jpg",
+  { src: "IMG_8706.JPG.jpeg", caption: "Los Vaguens en sesión de fotos" },
+  { src: "IMG_0208.JPG.jpeg", caption: "Entrevista exclusiva en Reactor 105.7 FM" },
+  { src: "IMG_8341.jpg", caption: "Los Vaguens visitan el foro de Telehit" },
+  { src: "IMG_8761.jpg", caption: "Entrevista para Telehit Música" },
+  { src: "IMG_9057.jpg", caption: "Grabando sesión en el podcast" },
 ];
 
 const flyerImages = [
