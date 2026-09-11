@@ -15,6 +15,7 @@ const phone = "5544775254";
 const contactName = "Fernando Luna";
 
 const pressImages = [
+  "IMG_8706.JPG.jpeg",
   "IMG_0208.JPG.jpeg",
   "IMG_0210.JPG.jpeg",
   "IMG_0223.PNG",
@@ -26,7 +27,6 @@ const flyerImages = [
   "IMG_2079.JPG.jpeg",
   "IMG_8106.JPG.jpeg",
   "IMG_8528.PNG",
-  "IMG_8706.JPG.jpeg",
   "IMG_9164.JPG.jpeg",
 ];
 
