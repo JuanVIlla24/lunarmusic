@@ -9,6 +9,17 @@ export interface Artist {
 
 export const artists: Artist[] = [
   {
+    id: "los-vaguens",
+    name: "LOS VAGUENS",
+    genre: "Rock / Pop",
+    shortBio: "Banda mexicana.",
+    imageUrl: "/artists/manager.png",
+    socialLinks: {
+      spotify: "https://open.spotify.com/artist/0cE1FRPmspxRadK6z3zQb2",
+      instagram: "https://www.instagram.com/losvaguens"
+    }
+  },
+  {
     id: "valsian",
     name: "VALSIAN",
     genre: "Pop",
@@ -28,17 +39,6 @@ export const artists: Artist[] = [
     socialLinks: {
       spotify: "https://open.spotify.com/artist/79C3hxvHZM7O041gO8YQmw?si=tNnZPa0ZSFCsHa6gJ7UCpw",
       instagram: "https://www.instagram.com/__petiteamie",
-    }
-  },
-  {
-    id: "los-vaguens",
-    name: "LOS VAGUENS",
-    genre: "Rock / Pop",
-    shortBio: "Banda mexicana.",
-    imageUrl: "/artists/manager.png",
-    socialLinks: {
-      spotify: "https://open.spotify.com/artist/0cE1FRPmspxRadK6z3zQb2",
-      instagram: "https://www.instagram.com/losvaguens"
     }
   }
 ];
